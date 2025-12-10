@@ -22,10 +22,8 @@ export const handler = async (event) => {
     data.email = email
     results = await createExpense(data, TABLE_NAME)
   } else if (method === 'GET' && !isEmptyParams) {
-    // data = {"user_id": "965292d4-e041-7013-fc6a-0fc2d113a172"}
     results = await queryExpenses(data, queryParams, TABLE_NAME)
   } else if (method === 'GET') {
-    //data = {"user_id": "965292d4-e041-7013-fc6a-0fc2d113a172"}
     results = await getAllExpenses(data, TABLE_NAME)
   } else if (method === 'PATCH' && !isEmptyParams) {
     const expense_id = queryParams.expense_id
